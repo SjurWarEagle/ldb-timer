@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-time-select',
@@ -7,7 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./time-select.component.scss'],
 })
 export class TimeSelectComponent {
-  constructor(private router: Router) {}
+  public showCustomPanel = true;
+  public customMinutes: number = 5;
+  public customSeconds: number = 30;
+
+  constructor(private router: Router) {
+  }
 
   public untilQuarterPast(): void {
     const now = new Date();
@@ -17,7 +22,7 @@ export class TimeSelectComponent {
     } else {
       targetTime = now.getTime() + (15 - now.getMinutes()) * 60 * 1000;
     }
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
   }
 
   public untilHalfPast(): void {
@@ -28,7 +33,7 @@ export class TimeSelectComponent {
     } else {
       targetTime = now.getTime() + (60 + 30 - now.getMinutes()) * 60 * 1000;
     }
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
   }
 
   public untilQuarterBefore(): void {
@@ -39,7 +44,7 @@ export class TimeSelectComponent {
     } else {
       targetTime = now.getTime() + (60 + 45 - now.getMinutes()) * 60 * 1000;
     }
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
   }
 
   public untilFull(): void {
@@ -48,16 +53,22 @@ export class TimeSelectComponent {
     if (now.getMinutes() > 0) {
       targetTime = now.getTime() + (60 - now.getMinutes()) * 60 * 1000;
     }
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
   }
 
   public someSeconds(): void {
     const targetTime = new Date().getTime() + 1000 * 5;
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
+  }
+
+  public toggleCustomTime(): void {
+    setTimeout(() => {
+      this.showCustomPanel = !this.showCustomPanel;
+    })
   }
 
   public startTimerMinutes(minutes: number): void {
     const targetTime = new Date().getTime() + 1000 * 60 * minutes;
-    this.router.navigate(['/run', { until: targetTime }]);
+    this.router.navigate(['/run', {until: targetTime}]);
   }
 }

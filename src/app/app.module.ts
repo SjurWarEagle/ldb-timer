@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NadinLogoComponent } from './components/nadin-logo/nadin-logo.component';
 import { FakeStatusComponent } from './components/fake-status/fake-status.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { FakeStatusComponent } from './components/fake-status/fake-status.compon
     FakeStatusComponent,
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
     AppRoutingModule,
     MatTooltipModule,
-    MatInputModule,
-    MatFormFieldModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
