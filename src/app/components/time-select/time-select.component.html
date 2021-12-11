@@ -2,6 +2,11 @@
   <div class="logo">
     <img src="../../assets/nadin-logo.gif" alt="nadin logo"/>
   </div>
+  <div class="logo">
+    <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+         class="christmas-hat"
+    />
+  </div>
 
   <div class="time-absolute">
     <button
@@ -25,29 +30,41 @@
     </button>
 
     <button
-      *ngIf="!showCustomPanel"
       mat-raised-button
       matTooltip="15 minuten ab jetzt"
       (click)="startTimerMinutes(15)"
       class="time"
+      *ngIf="!showCustomPanel"
     >
       15min
     </button>
 
-    <mat-form-field
+    <div
       *ngIf="showCustomPanel"
-      appearance="fill"
+      class="custom"
     >
-      <input [value]="customMinutes">
-      <mat-label>Minuten</mat-label>
-    </mat-form-field>
+      <button
+        mat-raised-button
+        matTooltip="starte mit {{customMinutes}}min"
+        (click)="startTimerMinutes(customMinutes)"
+        class="custom time"
+      >
+        {{customMinutes}}min
+      </button>
 
-    <mat-form-field
-      *ngIf="showCustomPanel"
-    >
-      <input [value]="customSeconds">
-      <mat-label>Sekunden</mat-label>
-    </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        class="middle minutes"
+      >
+        <input matInput
+               type="number"
+               [value]="customMinutes"
+               (keyup)="customChanged($event)"
+               min="1"
+        >
+        <mat-label>Minuten</mat-label>
+      </mat-form-field>
+    </div>
 
     <button
       mat-raised-button

@@ -38,3 +38,19 @@
   font-size: large;
   width: 6em;
 }
+
+.custom{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.minutes {
+  width: 5em;
+}
+
+.christmas-hat {
+  width: 300px;
+  transform: translate(60px, -102px);
+}
+

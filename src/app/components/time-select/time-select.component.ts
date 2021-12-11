@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 export class TimeSelectComponent {
   public showCustomPanel = true;
   public customMinutes: number = 5;
-  public customSeconds: number = 30;
 
   constructor(private router: Router) {
   }
@@ -59,6 +58,11 @@ export class TimeSelectComponent {
   public someSeconds(): void {
     const targetTime = new Date().getTime() + 1000 * 5;
     this.router.navigate(['/run', {until: targetTime}]);
+  }
+
+  public customChanged(event: any): void {
+    this.customMinutes = +event.srcElement?.value;
+
   }
 
   public toggleCustomTime(): void {
