@@ -1,16 +1,18 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
+import {IntroJsService} from "../../services/intro-js.service";
 
 @Component({
   selector: 'app-time-select',
   templateUrl: './time-select.component.html',
   styleUrls: ['./time-select.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class TimeSelectComponent {
-  public showCustomPanel = true;
+export class TimeSelectComponent implements AfterViewInit {
+  public showCustomPanel = false;
   public customMinutes: number = 5;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private introService:IntroJsService) {
   }
 
   public untilQuarterPast(): void {
@@ -66,13 +68,21 @@ export class TimeSelectComponent {
   }
 
   public toggleCustomTime(): void {
-    setTimeout(() => {
       this.showCustomPanel = !this.showCustomPanel;
+    setTimeout(() => {
+      if (this.showCustomPanel) {
+        this.introService.featureCustomTime();
+      }
     })
   }
 
   public startTimerMinutes(minutes: number): void {
     const targetTime = new Date().getTime() + 1000 * 60 * minutes;
     this.router.navigate(['/run', {until: targetTime}]);
+  }
+
+  public ngAfterViewInit(): void {
+    // noinspection JSIgnoredPromiseFromCall
+    this.introService.firstUserOverview();
   }
 }

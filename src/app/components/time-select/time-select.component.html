@@ -1,6 +1,11 @@
-<div class="all-times">
-  <div class="logo">
-    <img src="../../assets/nadin-logo.gif" alt="nadin logo"/>
+<div class="all-times"
+     id="userguide-overview"
+>
+  <div class="logo"
+  >
+    <img src="../../assets/nadin-logo.gif"
+         alt="nadin logo"
+    />
   </div>
   <div class="logo">
     <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
@@ -8,7 +13,9 @@
     />
   </div>
 
-  <div class="time-absolute">
+  <div class="time-absolute"
+       id="userguide-absolute-times"
+  >
     <button
       *ngIf="!showCustomPanel"
       mat-raised-button
@@ -48,6 +55,7 @@
         matTooltip="starte mit {{customMinutes}}min"
         (click)="startTimerMinutes(customMinutes)"
         class="custom time"
+        id="userguide-custom-start"
       >
         {{customMinutes}}min
       </button>
@@ -55,6 +63,7 @@
       <mat-form-field
         appearance="fill"
         class="middle minutes"
+        id="userguide-custom-input"
       >
         <input matInput
                type="number"
@@ -71,12 +80,16 @@
       matTooltip="custom"
       (click)="toggleCustomTime()"
       class="time"
+      id="userguide-custom-times"
     >
       🛠 ??:??
     </button>
   </div>
 
-  <div class="time-relative">
+  <div class="time-relative"
+       if="time-relative"
+       id="userguide-relative-times"
+  >
     <button
       mat-raised-button
       matTooltip="bis Viertel nach"
