@@ -1,12 +1,11 @@
-import {AfterViewInit, Component, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {IntroJsService} from "../../services/intro-js.service";
 
 @Component({
   selector: 'app-time-select',
   templateUrl: './time-select.component.html',
-  styleUrls: ['./time-select.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./time-select.component.scss']
 })
 export class TimeSelectComponent implements AfterViewInit {
   public showCustomPanel = false;
