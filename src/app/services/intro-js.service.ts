@@ -25,7 +25,7 @@ export class IntroJsService {
   public async featureCustomTime(): Promise<void> {
     this.introJS = introJs();
 
-    this.introJS.onexit((event) => {
+    this.introJS.onexit(() => {
       this._historicData.customTimeExecuted = true;
       this.saveHistoricData();
     })
@@ -42,7 +42,7 @@ export class IntroJsService {
         },
         {
           element: '#userguide-custom-start',
-          intro: 'Nachdem die Zeit eingestellt ist, kann der Timer mit [Enter] oder diesem Knopf gestartet werden.',
+          intro: 'Nachdem die Zeit eingestellt ist, kann der Wert mit [Enter] übernommen werden und mit oder diesem Knopf gestartet werden.',
         }
       ]
     })
@@ -52,7 +52,7 @@ export class IntroJsService {
   public async firstUserOverview(): Promise<void> {
     this.introJS = introJs();
 
-    this.introJS.onexit((event) => {
+    this.introJS.onexit(() => {
       this._historicData.introExecuted = true;
       this.saveHistoricData();
     })
