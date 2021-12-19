@@ -1,4 +1,4 @@
-FROM node:16.12.0-stretch
+FROM node:16.12.0-stretch as buildstep
 RUN mkdir -p /project/
 RUN mkdir -p /project/dist/nadin-timer
 
@@ -15,9 +15,12 @@ RUN npm install --no-audi && \
     npm run build:prod && \
     rm -r node_modules
 
+
+FROM nginx:mainline-alpine
+WORKDIR /project
+COPY --from=buildstep /project/dist /project
 ADD docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 RUN rm -rf /etc/apt/apt.conf.d/90nginx
-#RUN service nginx restart
 EXPOSE 96
 
 STOPSIGNAL SIGTERM
