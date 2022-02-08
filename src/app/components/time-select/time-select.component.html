@@ -1,3 +1,4 @@
+-{{getTheme()}}-
 <div class="all-times"
      id="userguide-overview"
 >
@@ -7,10 +8,18 @@
          alt="nadin logo"
     />
   </div>
-  <div class="logo">
-    <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
-         class="christmas-hat"
-    />
+
+  <div class="logo" [ngSwitch]="getTheme()">
+    <div *ngSwitchCase="'Winter'">
+      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+           class="christmas-hat"
+      />
+    </div>
+    <div *ngSwitchCase="'Spring'">
+      <img src="../../assets/banner-flowers.png" alt="nadin logo"
+           class="banner-flowers"
+      />
+    </div>
   </div>
 
   <div class="time-absolute"
