@@ -1,13 +1,22 @@
-<img
+<div
   class="divider-logo"
-  [hidden]="!isDone()"
-  src="../../../assets/logo_red.png"
-  alt="divider"
-/>
-<img
-  [hidden]="isDone()"
   [@secondsUpdated]="isSecondsEven() ? 'even' : 'uneven'"
-  class="divider-logo"
-  src="../../assets/nadin-logo.gif"
+>
+  <app-nadin-logo
+    [hidden]="isDone()"
+  ></app-nadin-logo>
+</div>
+
+<!--<img-->
+<!--  class="divider-logo"-->
+<!--  [hidden]="!isDone()"-->
+<!--  src="../../../assets/logo_red.png"-->
+<!--  alt="divider"-->
+<!--/>-->
+
+<img
+  [hidden]="!isDone()"
+  class="divider-logo-finished"
+  src="../../assets/logo_red.png"
   alt="seconds"
 />

@@ -1,38 +1,21 @@
 <div class="all-times"
      id="userguide-overview"
 >
-  <div class="logo"
-  >
-    <img src="../../assets/nadin-logo.gif"
-         alt="nadin logo"
-    />
+  <div class="logo">
+    <app-nadin-logo></app-nadin-logo>
   </div>
-
-  <div class="logo" [ngSwitch]="getTheme()">
-    <div *ngSwitchCase="'Winter'">
-      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
-           class="christmas-hat"
-      />
-    </div>
-    <div *ngSwitchCase="'Spring'">
-      <img src="../../assets/banner-flowers.png" alt="nadin logo"
-           class="banner-flowers"
-      />
-    </div>
-  </div>
-
   <div class="time-absolute"
        id="userguide-absolute-times"
   >
-    <button
-      *ngIf="!showCustomPanel"
-      mat-raised-button
-      matTooltip="5 minuten ab jetzt"
-      (click)="startTimerMinutes(0.1)"
-      class="time"
-    >
-      DEV
-    </button>
+<!--    <button-->
+<!--      *ngIf="!showCustomPanel"-->
+<!--      mat-raised-button-->
+<!--      matTooltip="5 minuten ab jetzt"-->
+<!--      (click)="startTimerMinutes(0.1)"-->
+<!--      class="time"-->
+<!--    >-->
+<!--      DEV-->
+<!--    </button>-->
 
     <button
       *ngIf="!showCustomPanel"

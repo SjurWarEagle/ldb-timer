@@ -1,111 +1,30 @@
-// time of the globe to make X turns
-// where X is the multiplicator in animation.scss (bay default 1)
-$animation-speed: 10s;
-
-.both {
-  display: grid;
-  grid-template-areas: "both";
-
-  justify-self: center;
-  place-self: center;
+.all {
   height: 100%;
-  width: 100%;
+  width: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "logo"
 }
 
 .logo {
-  object-fit: contain;
-  height: 100%;
-  width: auto;
-}
-
-.logo-pos {
-  margin: 0;
+  grid-area: logo;
+  display: flex;
+  justify-self: center;
   text-align: center;
-  grid-area: both;
 }
 
-.stage-pos {
-  height: 100%;
-  width: 100%;
-
-  margin: 0;
-
-  object-fit: contain;
-  grid-area: both;
-  align-self: center;
-  place-self: center;
-  text-align: center;
-  transform: scale(0.45);
-}
-
-.ball {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  border-radius: 50%;
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-  background: url("/assets/world/world-map-one-color.png") repeat-x;
-  background-size: auto 100%;
-  -webkit-animation: move-map $animation-speed infinite linear;
-  -moz-animation: move-map $animation-speed infinite linear;
-  -o-animation: move-map $animation-speed infinite linear;
-  -ms-animation: move-map $animation-speed infinite linear;
-  animation: move-map $animation-speed infinite linear;
-}
-
-.ball:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  box-shadow: -40px 10px 70px 10px rgba(0, 0, 0, 0.5) inset;
-  z-index: 2;
-}
-
-.ball:after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-filter: blur(0);
-  opacity: 0.5;
-  // "licht"
-  background: radial-gradient(circle at 50% 80%, #4c9135, #285818 100%);
-}
-
-body {
+.christmas-hat {
   width: 300px;
-  margin: 20px auto;
-  background: linear-gradient(
-    to bottom,
-    rgba(100, 100, 100, 0.2) 0%,
-    #418e27 40%,
-    #ffffff 100%
-  );
-  background-repeat: no-repeat;
+  transform: translate(60px, -102px);
 }
 
-.stage {
-  display: inline-block;
-  margin: 40px;
-  -webkit-perspective: 1200px;
-  -moz-perspective: 1200px;
-  -ms-perspective: 1200px;
-  -o-perspective: 1200px;
-  perspective: 1200px;
-  -webkit-perspective-origin: 50% 50%;
-  -moz-perspective-origin: 50% 50%;
-  -ms-perspective-origin: 50% 50%;
-  -o-perspective-origin: 50% 50%;
-  perspective-origin: 50% 50%;
+.banner-flowers {
+  width: 500px;
+  transform: scaleY(1.5) scaleX(1.15) translate(0, 120px);
+  filter: drop-shadow(5px 5px 5px darkgray);
 }
 
-@import "animation";

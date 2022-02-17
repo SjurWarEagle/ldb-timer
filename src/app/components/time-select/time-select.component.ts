@@ -13,12 +13,8 @@ export class TimeSelectComponent implements AfterViewInit {
   public customMinutes = 5;
 
   constructor(private router: Router,
-              private introService: IntroJsService,
-              private themeDeciderService: ThemeDeciderService) {
-  }
-
-  public getTheme(): string {
-    return this.themeDeciderService.getTheme();
+              private introService: IntroJsService
+              ) {
   }
 
   public untilQuarterPast(): void {
