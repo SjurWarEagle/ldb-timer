@@ -20,7 +20,7 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'));
+    this.targetTime = parseInt(this.route.snapshot.paramMap.get('until'), 10);
 
     this.timerTimer = timer(0, 100).subscribe(() => {
       const now: Date = new Date(Date.now());
@@ -43,18 +43,18 @@ export class RunTimerComponent implements OnInit, OnDestroy {
   public playAudio(): void {
     const audio = new Audio();
 
-    const rnd = chance().integer({min: 0, max: 2});
+    const rnd = this.getWeightedRandom();
     switch (rnd) {
-      case 0:
+      case 'laughter':
         audio.src = '../../assets/sounds/Evil_Laugh_1-Timothy.mp3';
         break;
-      case 1:
+      case 'whistle':
         audio.src = '../../assets/sounds/Whistling.mp3';
         break;
-      case 2:
+      case 'alarm':
         audio.src = '../../assets/sounds/alarm.wav';
         break;
-      case 3:
+      case 'bell':
         audio.src = '../../assets/sounds/service-bell.mp3';
         break;
       default:
@@ -63,6 +63,10 @@ export class RunTimerComponent implements OnInit, OnDestroy {
     }
     audio.load();
     audio.play();
+  }
+
+  private getWeightedRandom(): string {
+    return chance().weighted(['laughter', 'whistle', 'alarm', 'bell'], [1, 1, 5, 1]);
   }
 
   public ngOnDestroy(): void {

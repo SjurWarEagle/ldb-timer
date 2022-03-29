@@ -6,13 +6,14 @@ import * as introJs from 'intro.js/intro.js';
 })
 export class IntroJsService {
   private introJS = null;
+  // tslint:disable-next-line:variable-name
   private _historicData: {
     introExecuted: boolean,
     customTimeExecuted: boolean,
   };
 
   constructor() {
-    this._historicData = JSON.parse(localStorage.getItem("intro"));
+    this._historicData = JSON.parse(localStorage.getItem('intro'));
     if (!this._historicData) {
       this._historicData = {introExecuted: false, customTimeExecuted: false};
     }
@@ -28,7 +29,7 @@ export class IntroJsService {
     this.introJS.onexit(() => {
       this._historicData.customTimeExecuted = true;
       this.saveHistoricData();
-    })
+    });
 
     if (this._historicData.customTimeExecuted) {
       return;
@@ -44,7 +45,8 @@ export class IntroJsService {
         {
           title: 'Start',
           element: '#userguide-custom-start',
-          intro: 'Nachdem die Zeit eingestellt ist, kann der Wert mit [Enter] übernommen werden und mit oder diesem Knopf gestartet werden.',
+          intro: 'Nachdem die Zeit eingestellt ist, kann der Wert mit [Enter] übernommen werden ' +
+            'und mit oder diesem Knopf gestartet werden.',
         }
       ]
     })
@@ -57,7 +59,7 @@ export class IntroJsService {
     this.introJS.onexit(() => {
       this._historicData.introExecuted = true;
       this.saveHistoricData();
-    })
+    });
 
     if (this._historicData.introExecuted) {
       return;
@@ -94,6 +96,6 @@ export class IntroJsService {
 
   private saveHistoricData() {
     console.log('saveHistoricData');
-    localStorage.setItem("intro", JSON.stringify(this._historicData));
+    localStorage.setItem('intro', JSON.stringify(this._historicData));
   }
 }
