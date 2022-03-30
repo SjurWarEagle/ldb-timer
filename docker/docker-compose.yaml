@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  nadin-timer:
+  ldb-timer:
     build:
       context: ..
       dockerfile: docker/Dockerfile

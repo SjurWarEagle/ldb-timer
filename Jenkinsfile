@@ -31,11 +31,11 @@ pipeline {
   }
 
   environment {
-    PRODUCT_NAME = "NadinTimer"
+    PRODUCT_NAME = "LDBTimer"
     NPM_CONFIG_PROGRESS = false
     NPM_CONFIG_SPIN = false
     NORMALIZED_BRANCH_NAME = env.BRANCH_NAME.replaceAll('[^a-zA-Z\\d\\s:]', '_')
-    DOCKER_IMAGE_NAME = "nadin-timer" + "-branch_" + "${env.NORMALIZED_BRANCH_NAME}"
+    DOCKER_IMAGE_NAME = "^ldb-timer" + "-branch_" + "${env.NORMALIZED_BRANCH_NAME}"
   }
 
   stages {

@@ -8,26 +8,34 @@
   grid-template-areas:
     ". . ."
     ". logo ."
-    ". absolute ."
-    ". relative . "
+    ". absoluteTime ."
+    ". relativeTime . "
     ". . . ";
 }
 
 .logo {
   grid-area: logo;
-  display: flex;
   justify-self: center;
   text-align: center;
+  //height: 0;
+}
+
+.season-images {
+  //grid-area: logo;
+  //display: flex;
+  //justify-self: center;
+  //text-align: center;
+  height: 0;
 }
 
 .time-absolute {
-  grid-area: absolute;
+  grid-area: absoluteTime;
   display: flex;
   justify-self: center;
 }
 
 .time-relative {
-  grid-area: relative;
+  grid-area: relativeTime;
   display: flex;
   justify-self: center;
 }
