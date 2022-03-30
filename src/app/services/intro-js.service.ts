@@ -70,7 +70,7 @@ export class IntroJsService {
         {
           title: 'Hallo!',
           element: '#userguide-overview',
-          intro: 'Willkommen beim Nadin Timer,<br><br>eine schnelle Möglichkeit für unterhaltsame Meetingpausen.',
+          intro: 'Willkommen beim LDB Timer,<br><br>eine schnelle Möglichkeit für unterhaltsame Meetingpausen.',
         },
         {
           title: 'Minuten',
