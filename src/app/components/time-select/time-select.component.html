@@ -65,6 +65,7 @@
         appearance="fill"
         class="middle minutes"
         id="userguide-custom-input"
+        (keyup.enter)="startTimerMinutes(customMinutes)"
       >
         <input matInput
                type="number"
