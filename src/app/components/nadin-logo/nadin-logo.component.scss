@@ -1,16 +1,28 @@
-.all-logos {
-  max-width: 500px;
-  max-height: 500px;
+.all {
+  height: 100%;
+  width: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "logo"
 }
 
-.season-decoration {
-  position: relative;
-  left: 0;
-  bottom: 0;
+.logo {
+  grid-area: logo;
+  display: flex;
+  justify-self: center;
+  text-align: center;
 }
 
 .app-logo {
-  width: 100%;
+  width: 450px;
+  grid-area: logo;
+  display: flex;
+  justify-self: center;
+  text-align: center;
 }
 
 .christmas-hat {
@@ -19,25 +31,26 @@
 }
 
 .banner-flowers {
-  width: 300px;
-  transform: scaleY(1.5) scaleX(1.15) translate(0, -50px);
+  width: 500px;
+  transform: scaleY(1.5) scaleX(1.15) translate(0, 120px);
   filter: drop-shadow(5px 5px 5px darkgray);
 }
 
 
 .easter-fence {
+  display: block;
   width: 555px;
   height: 250px;
-  transform: translate(0, 195px);
+  transform: translate(0, 140px);
   filter: drop-shadow(5px 5px 5px darkgray);
 }
 
 .easter-rabbit {
+  display: block;
   width: 80px;
-  transform: translate(145px, -425px);
+  transform: translate(165px, -370px);
   //filter: drop-shadow(5px 5px 5px darkgray);
 }
-
 //
 //.easter-rabbit {
 //  display: block;

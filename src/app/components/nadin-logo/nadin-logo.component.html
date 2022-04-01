@@ -1,9 +1,29 @@
-<div class="all-logos"
+<div class="all"
 >
-    <img src="../../assets/ldb.png"
+    <img src="../../assets/app-logo.png"
+         alt="nadin logo"
          class="app-logo"
-         alt="ldb logo"
     />
 
+  <div class="logo" [ngSwitch]="getTheme()">
+    <div *ngSwitchCase="'Winter'">
+      <img src="../../assets/christmas-hat-png.png" alt="nadin logo"
+           class="christmas-hat"
+      />
+    </div>
+    <div *ngSwitchCase="'Spring'">
+      <img src="../../assets/banner-flowers.png" alt="nadin logo"
+           class="banner-flowers"
+      />
+    </div>
+    <div *ngSwitchCase="'Easter'">
+      <img src="../../assets/season/easter/fence.png"
+           class="easter-fence"
+      />
+      <img src="../../assets/season/easter/rabbit.jpg"
+           class="easter-rabbit"
+      />
+    </div>
+  </div>
 </div>
 
